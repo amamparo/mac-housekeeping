@@ -1,6 +1,8 @@
-# What it is
-A python script that specifies the following hourly cron jobs for the current-logged-in mac user:
+# Who is this for?
+A mac user who would like to keep their desktop, downloads, and trash de-cluttered.
 
+# What does it do?
+This python script initializes the following hourly cleanup tasks
 - Move files in ~/Desktop that haven't been accessed in over 1 day to trash
 - Move files in ~/Downloads that haven't been accessed in over 1 day to trash
 - Empty trash of all files that haven't been accessed in over 1 week
