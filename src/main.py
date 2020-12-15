@@ -11,7 +11,7 @@ def __move_older_than_to_trash(days_old: int, _dir: str) -> str:
     )
 
 
-def __clean_desktop(cron: CronTab) -> None:
+def __clean_desktop(cron: CronTab) -> CronTab:
     job = cron.new(
         command=__move_older_than_to_trash(1, '~/Desktop'),
         comment='Move desktop files older than 1 day to trash'
@@ -20,7 +20,7 @@ def __clean_desktop(cron: CronTab) -> None:
     return cron
 
 
-def __clean_downloads(cron: CronTab) -> None:
+def __clean_downloads(cron: CronTab) -> CronTab:
     job = cron.new(
         command=__move_older_than_to_trash(1, '~/Downloads'),
         comment='Move download files older than 1 day to trash'
@@ -29,7 +29,7 @@ def __clean_downloads(cron: CronTab) -> None:
     return cron
 
 
-def __empty_trash(cron: CronTab) -> None:
+def __empty_trash(cron: CronTab) -> CronTab:
     job = cron.new(
         command='find ~/.Trash -type f -atime +7d -exec rm -rf {} \\;',
         comment='Empty trash of all items older than 1 week'
